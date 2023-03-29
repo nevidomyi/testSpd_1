@@ -66,9 +66,9 @@ const CarouselImage = styled.img<{ active: boolean }>`
   width: 100%;
   height: 100vh;
   position: absolute;
+  object-fit: cover;
   pointer-events: none;
   opacity: ${({ active }) => (active ? 1 : 0)};
-  /* display: ${({ active }) => (active ? "flex" : "none")}; */
   transition: opacity 0.5s ease-in-out;
 `;
 
@@ -76,7 +76,6 @@ const Navigation = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* margin-top: 10px; */
 `;
 
 const NavigationButton = styled.button`

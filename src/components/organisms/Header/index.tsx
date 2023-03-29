@@ -4,13 +4,15 @@ import Logo from "../../atoms/Logo";
 import NavBtnGroup from "../../molecules/NavBtnGroup";
 import NavMenu from "../../molecules/NavMenu";
 
+type HeaderProps = {
+  isChecked?: boolean;
+};
+
 const StyledHeader = styled.div`
   background: rgba(30, 30, 30, 0.48);
   height: 5rem;
-  top: 0;
-  right: 0;
   z-index: 2;
-  position: absolute;
+  position: fixed;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -19,12 +21,12 @@ const StyledHeader = styled.div`
   padding-right: 5rem;
 `;
 
-const Header: FC = () => {
+const Header: FC<HeaderProps> = ({ isChecked }) => {
   return (
     <StyledHeader>
-      <Logo link={".."} />
+      <Logo link={"/"} />
       <NavMenu />
-      <NavBtnGroup />
+      <NavBtnGroup isChecked={isChecked} />
     </StyledHeader>
   );
 };

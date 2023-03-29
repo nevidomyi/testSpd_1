@@ -1,6 +1,6 @@
 import { FC } from "react";
 import styled from "styled-components";
-import { StyledButton } from "../Button";
+import { StyledButton, ButtonProps } from "../Button";
 
 const StyledNextButton = styled(StyledButton)`
   min-width: 44px;
@@ -10,7 +10,7 @@ const StyledNextButton = styled(StyledButton)`
   background: #ECECEC;
 `;
 
-const NextButton: FC = ({ ...props }) => {
+const NextButton: FC<ButtonProps> = ({ ...props }) => {
   return (
     <StyledNextButton {...props}>
       <img src="/images/icons/Arrow right.svg" />

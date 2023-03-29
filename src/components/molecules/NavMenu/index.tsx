@@ -10,7 +10,7 @@ const StyledNavMenu = styled.div`
 const NavMenu: FC = () => {
   return (
     <StyledNavMenu>
-      <MenuLink link="/home">Home</MenuLink>
+      <MenuLink link="/">Home</MenuLink>
       <MenuLink link="..">Tours</MenuLink>
       <MenuLink link="..">About</MenuLink>
       <MenuLink link="..">Help</MenuLink>

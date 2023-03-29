@@ -1,12 +1,17 @@
-import { FC } from "react";
+import { FC, ReactElement } from "react";
 import styled from "styled-components";
 import { Label } from "../../atoms/Label";
-import NextButton from "../../atoms/NextButton";
-import PrevButton from "../../atoms/PrevButton";
+
+interface ToursCapProps {
+  cardsPerPage?: number;
+  cardsLenght?: number;
+  children?: ReactElement | ReactElement[];
+}
 
 const StyledToursCap = styled.div`
   height: 100%;
   width: 100%;
+  padding-bottom: 43px;
   display: flex;
   flex-flow: row;
   justify-content: space-between;
@@ -16,16 +21,13 @@ const StyledArrows = styled.div`
   display: flex;
 `;
 
-const ToursCap: FC = () => {
+const ToursCap: FC<ToursCapProps> = ({ children }) => {
   return (
     <StyledToursCap>
       <Label size={"2rem"} color={"black"}>
         Popular tours
       </Label>
-      <StyledArrows>
-        <PrevButton />
-        <NextButton />
-      </StyledArrows>
+      <StyledArrows>{children}</StyledArrows>
     </StyledToursCap>
   );
 };

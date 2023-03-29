@@ -1,15 +1,15 @@
-import React from "react";
-import styled from "styled-components";
-import Home from "./components/pages/Home";
-import { BrowserRouter } from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
+import router from "./router/router";
+import { RecoilRoot } from "recoil";
+import APIProvider from "./api/API";
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Home/>
-      </div>
-    </BrowserRouter>
+    <APIProvider>
+      <RecoilRoot>
+        <RouterProvider router={router} />
+      </RecoilRoot>
+    </APIProvider>
   );
 }
 

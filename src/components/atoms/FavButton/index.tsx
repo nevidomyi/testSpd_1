@@ -1,13 +1,14 @@
 import { FC } from "react";
 import styled from "styled-components";
-import { StyledButton } from "../Button";
+import { StyledButton, ButtonProps } from "../Button";
 
-type FavButtonProps = {
+interface FavButtonProps extends ButtonProps {
   checked?: boolean;
-};
+}
 
 const StyledFavButton = styled(StyledButton)<FavButtonProps>`
   min-width: 53px;
+  width: 53px;
   padding: 0;
 
   ${(props) =>
@@ -20,10 +21,14 @@ const StyledFavButton = styled(StyledButton)<FavButtonProps>`
     `}
 `;
 
-const FavButton: FC<FavButtonProps> = ({ ...props }) => {
+const FavButton: FC<FavButtonProps> = ({ onClick, ...props }) => {
   return (
-    <StyledFavButton {...props}>
-      <img src="/images/icons/Heart.svg" />
+    <StyledFavButton {...props} onClick={onClick}>
+      {props?.checked ? (
+        <img src="/images/icons/Heart_white.svg" />
+      ) : (
+        <img src="/images/icons/Heart.svg" alt="" />
+      )}
     </StyledFavButton>
   );
 };

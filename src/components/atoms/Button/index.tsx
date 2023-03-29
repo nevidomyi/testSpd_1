@@ -1,9 +1,10 @@
 import { FC, ReactNode } from "react";
 import styled from "styled-components";
 
-type ButtonProps = {
+export interface ButtonProps {
   children?: ReactNode;
-};
+  onClick?: (e?: any) => void;
+}
 
 export const StyledButton = styled.div<ButtonProps>`
   display: flex;
@@ -43,6 +44,10 @@ export const StyledButton = styled.div<ButtonProps>`
   }
 `;
 
-export const Button: FC<ButtonProps> = ({ children }) => {
-  return <StyledButton>{children}</StyledButton>;
+export const Button: FC<ButtonProps> = ({ children, onClick, ...props }) => {
+  return (
+    <StyledButton {...props} onClick={onClick}>
+      {children}
+    </StyledButton>
+  );
 };
